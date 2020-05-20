@@ -1,0 +1,8 @@
+{
+  "name": "spiralizer",
+  "description": "A tool for analyzing Slay the Spire decks",
+  "repository": "https://github.com/LandonSchropp/spiralizer",
+  "author": "Landon Schropp <schroppl@gmail.com> (https://landonschropp.com)",
+  "license": "MIT",
+  "private": true
+}
