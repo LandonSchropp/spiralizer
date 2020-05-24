@@ -9,6 +9,11 @@
     "parcel-bundler": "^1.12.4"
   },
   "scripts": {
-    "serve": "parcel serve --no-cache --out-dir build source/index.njk"
+    "serve": "parcel serve --no-cache --out-dir build source/index.njk",
+    "build": "parcel build --no-cache --out-dir build source/index.njk",
+    "deploy": "yarn build && gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
