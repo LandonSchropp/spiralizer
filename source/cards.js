@@ -25,12 +25,26 @@ function upgrade(string) {
     .replace(WHITESPACE_REGEX, " ");
 }
 
-function transformCard({ name, rarity, type, cost, description }) {
+function extract({ description }, regex) {
+  let match = description.match(regex);
+  if (_.isNil(match)) { return 0; }
+  return match[1];
+}
 
-  let common = {
-    rarity,
-    type
+function extractStats(card) {
+  return {
+    ...card,
+    damage: extract(card, /deal (\d+) damage/i),
+    block: extract(card, /gain (\d+) block/i),
+    vulnerable: extract(card, /apply (\d+) vulnerable/i),
+    weak: extract(card, /apply (\d+) weak/i),
+    draw: extract(card, /draw (\d+) card/),
+    discard: extract(card, /discard (\d+) card/)
   };
+}
+
+function transformCard({ name, rarity, type, cost, description }) {
+  let common = { rarity, type };
 
   return [
     {
@@ -45,11 +59,10 @@ function transformCard({ name, rarity, type, cost, description }) {
       ...common,
       cost: upgrade(cost)
     }
-  ];
+  ].map(extractStats);
 }
 
 export async function fetchCards() {
-
   let response = await scrapeIt(IRONCLAD_CARDS_URL, {
     cards: {
       listItem: ".article-table tr",
