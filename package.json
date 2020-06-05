@@ -1,6 +1,6 @@
 {
   "name": "spiralizer",
-  "description": "A tool for analyzing Slay the Spire decks",
+  "description": "A set of scripts for analyzing Slay the Spire decks",
   "repository": "https://github.com/LandonSchropp/spiralizer",
   "author": "Landon Schropp <schroppl@gmail.com> (https://landonschropp.com)",
   "license": "UNLICENSED",
@@ -13,13 +13,9 @@
     "@babel/plugin-proposal-decorators": "^7.10.1",
     "@babel/preset-env": "^7.10.1",
     "@babel/register": "^7.10.1",
+    "fs-extra": "^9.0.0",
     "lodash": "^4.17.15",
-    "mobx": "^5.15.4",
-    "mobx-react": "^6.2.2",
-    "normalize.css": "^8.0.1",
-    "parcel-bundler": "^1.12.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "scrape-it": "^5.2.3"
   },
   "scripts": {
     "serve": "parcel serve --no-cache --out-dir build source/index.html",
@@ -32,10 +28,6 @@
     "eslint": "^7.1.0",
     "eslint-config-optimum-energy": "^0.6.3",
     "eslint-plugin-react": "^7.20.0",
-    "fs-extra": "^9.0.0",
-    "gh-pages": "^2.2.0",
-    "import-js": "^4.0.2",
-    "sass": "^1.26.7",
-    "scrape-it": "^5.2.3"
+    "import-js": "^4.0.2"
   }
 }
