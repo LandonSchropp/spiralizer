@@ -1,6 +1,11 @@
 import _ from "lodash";
+import { titleCase } from "voca";
 
 import { parse } from "json2csv";
+
+function titleCaseKeys(object) {
+  return _.fromPairs(_.map(object, (value, key) => [ titleCase(key), value ]));
+}
 
 /**
  * Converts a JavaScript object into CSV.
@@ -8,7 +13,7 @@ import { parse } from "json2csv";
  * @return The object as a CSV string.
  */
 export function toCSV(data) {
-  return parse(data, { header: true });
+  return parse(data.map(titleCaseKeys), { header: true });
 }
 
 /**
