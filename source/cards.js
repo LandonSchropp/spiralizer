@@ -39,7 +39,8 @@ function extractStats(card) {
     vulnerable: extract(card, /apply (\d+) vulnerable/i),
     weak: extract(card, /apply (\d+) weak/i),
     draw: extract(card, /draw (\d+) card/),
-    discard: extract(card, /discard (\d+) card/)
+    discard: extract(card, /discard (\d+) card/),
+    energy: extract(card, /gain (\d+) energy/)
   };
 }
 
