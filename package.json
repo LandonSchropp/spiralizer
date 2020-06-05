@@ -19,9 +19,7 @@
     "scrape-it": "^5.2.3"
   },
   "scripts": {
-    "serve": "parcel serve --no-cache --out-dir build source/index.html",
-    "build": "parcel build --no-cache --out-dir build source/index.html",
-    "deploy": "yarn build && gh-pages -d build",
+    "scrape-cards": "babel-node source/index.js",
     "lint": "eslint --max-warnings=0 ."
   },
   "devDependencies": {

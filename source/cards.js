@@ -1,14 +1,9 @@
-#!/usr/bin/env node
-
-const scrapeIt = require("scrape-it");
-const fs = require("fs-extra");
-
-const PATH = `${ __dirname }/../data/ironclad-cards.json`;
+import scrapeIt from "scrape-it";
 
 const BASE_URL = "https://slay-the-spire.fandom.com/wiki";
 const IRONCLAD_CARDS_URL = `${ BASE_URL }/Ironclad_Cards`;
 
-(async () => {
+export async function fetchCards() {
 
   let response = await scrapeIt(IRONCLAD_CARDS_URL, {
     cards: {
@@ -28,5 +23,5 @@ const IRONCLAD_CARDS_URL = `${ BASE_URL }/Ironclad_Cards`;
     }
   });
 
-  fs.writeJSON(PATH, response.data.cards.slice(1), { spaces: 2 });
-})();
+  return response.data.cards.slice(1);
+}
